@@ -5,7 +5,6 @@ import com.example.libaryapi2.repository.AutorRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -14,8 +13,8 @@ public class AutorService {
   @Autowired
   AutorRespository autorRespository;
 
-  public Autor salvar(Autor autor){
-    return autorRespository.save(autor);
+  public void salvar(Autor autor){
+    autorRespository.save(autor);
   }
 
   public Optional<Autor> ObterAutorById(String uuid){
