@@ -31,7 +31,4 @@ public class AutorService {
     }
     return autor;
   }
-  List<Autor> pesquisar(){
-    
-  }
 }
