@@ -51,8 +51,10 @@ public class AutorController {
     return ResponseEntity.noContent().build();
   }
   @GetMapping
-  ResponseEntity<List<AutorDTO>> pesquisar(@RequestParam("nome") String nome, @RequestParam("nacionalidade")String nacionalidade){
-
+  ResponseEntity<List<AutorDTO>> pesquisar(@RequestParam(name = "nome",required = false) String nome, @RequestParam(name="nacionalidade",required = false)String nacionalidade){
+    List<Autor> autores= this.autorService.Obterautores(nacionalidade,nome);
+    List<AutorDTO> autoresdto=autores.stream().map(n->new AutorDTO(n.getId(),n.getNome(),n.getData(),n.getNacionalidade())).toList();
+    return ResponseEntity.ok(autoresdto);
 
   }
 }

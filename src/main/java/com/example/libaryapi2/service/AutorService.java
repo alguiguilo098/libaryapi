@@ -5,6 +5,7 @@ import com.example.libaryapi2.repository.AutorRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -29,5 +30,19 @@ public class AutorService {
       return autor;
     }
     return autor;
+  }
+
+  public List<Autor> Obterautores(String nacionalidade,  String nome){
+    if(nacionalidade!=null && nome!=null){
+      return this.autorRespository.findByNacionalidadeAndNome(nacionalidade,nome);
+    }
+    else if(nome!=null){
+      return this.autorRespository.findByNome(nome);
+    }else if(nacionalidade!=null){
+      return  this.autorRespository.findByNacionalidade(nacionalidade);
+    }else{
+      return this.autorRespository.findAll();
+    }
+
   }
 }

@@ -29,4 +29,33 @@ public class Autor {
 
   @OneToMany(mappedBy = "autor",fetch = FetchType.EAGER)
   List<Livro> lista;
+
+  public String getNacionalidade() {
+    return this.nacionalidade;
+  }
+
+  public LocalDate getData() {
+    return  this.data;
+  }
+
+  public UUID getId() {
+    return this.id;
+  }
+
+  public String getNome() {
+    return this.nome;
+  }
+
+  public void setNome(String nome) {
+    this.nome=nome;
+  }
+
+  public void setData(LocalDate dataNascimento) {
+    this.data=dataNascimento;
+  }
+
+
+  public void setNacionalidade(String nacionalidade) {
+    this.nacionalidade=nacionalidade;
+  }
 }
